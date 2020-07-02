@@ -1,0 +1,30 @@
+{
+  "name": "single-instance-web3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rudreshsolanki97/single-instance-web3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rudreshsolanki97/single-instance-web3/issues"
+  },
+  "homepage": "https://github.com/rudreshsolanki97/single-instance-web3#readme",
+  "dependencies": {
+    "concurrently": "^5.2.0",
+    "decache": "^4.6.0",
+    "dotenv": "^8.2.0",
+    "lodash": "^4.17.15",
+    "nodemon": "^2.0.4",
+    "web3": "^1.2.9",
+    "xdc3": "^1.2.1211"
+  }
+}
