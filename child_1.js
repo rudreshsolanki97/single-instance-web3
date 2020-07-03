@@ -1,12 +1,32 @@
-const decache = require("decache");
-let { ParentEmitter, xdc } = require("./parent");
+let { ParentEmitter } = require("./parent");
 
-setInterval(async () => {
-  console.log(`${__filename}::LISTENING`, await xdc.eth.net.isListening());
-}, 1000);
+let heartbeatRef = null,
+  xdc;
+
+function HeartBeat() {
+  clearInterval(heartbeatRef);
+  heartbeatRef = setInterval(async () => {
+    try {
+      console.log(`${__filename}::LISTENING`, await xdc.eth.net.isListening());
+    } catch (e) {
+      console.log(`error:: child:`, e);
+    }
+  }, 1000);
+}
 
 ParentEmitter.on("xdc", () => {
-  console.log(`[*] updating XDC onn event`);
-  decache("./parent");
+  console.log(`[*] updating XDC onn event @@@@@@@@@@@@@@@@`);
+  /**
+   * no need to bust cache
+   */
   xdc = require("./parent").xdc;
+  HeartBeat();
 });
+
+/**
+ * Subscribtions
+ */
+
+/**
+ * Initiations
+ */
